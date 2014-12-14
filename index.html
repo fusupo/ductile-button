@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800px" height="600px">
+        <defs>
+            <g id="shape">
+                <rect x="0" y="0" width="160" height="40" style="fill: #ffa54f" />
+                <rect x="0" y="40" width="160" height="40" style="fill: #8b4513" />
+                <text x="5" y="30" style="fill: #333333; stroke: none; font-size: 2em;">
+                    Something
+                </text>
+                <text x="5" y="70" style="fill: #cdba96; stroke: none; font-size: 2em;">
+                    Selected
+                </text>
+            </g>
+        </defs>
+        <g>
+	    <svg x="10" width="40" height="40" viewBox="0 0 40 40">
+		<use xlink:href="#shape" x="0" y="0">
+		    <animate id="slice_pre_animate"
+			     attributeName="y"
+			     attributeType="XML"
+			     from="0"
+			     to="0"
+			     begin="0s"
+			     dur="1s" />
+		    <animate id="slice_animate"
+			     attributeName="y"
+			     attributeType="XML"
+			     from="0"
+			     to="-40"
+			     begin="slice_pre_animate.end"
+			     dur="1s"
+			     repeatCount="indefinite" />
+		</use>
+	    </svg>
+	    <svg x="50" width="40" height="40" viewBox="40 0 40 40">
+		<use xlink:href="#shape" x="0" y="0">
+		    <animate attributeName="y"
+			     attributeType="XML"
+			     from="0"
+			     to="-40"
+			     begin="0.25s"
+			     dur="1s"
+			     repeatCount="indefinite" />
+		</use>
+            </svg>
+            <svg x="90" width="40" height="40" viewBox="80 0 40 40">
+		<use xlink:href="#shape" x="0" y="0">
+                    <animate attributeName="y"
+			     attributeType="XML"
+			     from="0"
+			     to="-40"
+			     begin="0.5s"
+			     dur="1s"
+			     repeatCount="indefinite" />
+		</use>
+            </svg>
+            <svg x="130" width="40" height="40" viewBox="120 0 40 40">
+		<use xlink:href="#shape" x="0" y="0">
+                    <animate attributeName="y"
+			     attributeType="XML"
+			     from="0"
+			     to="-40"
+			     begin="0.75s"
+			     dur="1s"
+			     repeatCount="indefinite" />
+		</use>
+            </svg>
+        </g>
+        <svg x="180">
+            <use xlink:href="#shape" x="0" y="0" />
+        </svg>
+    </svg>
+</body>
+
+</html>
