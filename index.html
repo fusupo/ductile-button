@@ -23,54 +23,54 @@
         <g>
 	    <svg x="10" width="40" height="40" viewBox="0 0 40 40">
 		<use xlink:href="#shape" x="0" y="0">
-		    <animate id="slice_pre_animate"
-			     attributeName="y"
+		    <animate attributeName="y"
 			     attributeType="XML"
-			     from="0"
-			     to="0"
-			     begin="0s"
-			     dur="1s" />
-		    <animate id="slice_animate"
-			     attributeName="y"
-			     attributeType="XML"
-			     from="0"
-			     to="-40"
-			     begin="slice_pre_animate.end"
-			     dur="1s"
-			     repeatCount="indefinite" />
+			     values="0;0; -40;-40"
+			     begin="0.0s"
+			     dur="2s"
+			     repeatCount="indefinite"
+			     keyTimes="0;0.25;.75;1;"
+			     keySplines="1 0.01 0.61 0.84; 1 0.01 0.61 0.84; 1 0.01 0.61 0.84"
+			     calcMode="spline"/>
 		</use>
-	    </svg>
+            </svg>
 	    <svg x="50" width="40" height="40" viewBox="40 0 40 40">
 		<use xlink:href="#shape" x="0" y="0">
 		    <animate attributeName="y"
 			     attributeType="XML"
-			     from="0"
-			     to="-40"
+			     values="0;0; -40;-40"
 			     begin="0.25s"
-			     dur="1s"
-			     repeatCount="indefinite" />
+			     dur="2s"
+			     repeatCount="indefinite"
+			     keyTimes="0;0.25;.75;1;"
+			     keySplines="1 0.01 0.61 0.84; 1 0.01 0.61 0.84; 1 0.01 0.61 0.84"
+			     calcMode="spline"/>
 		</use>
             </svg>
             <svg x="90" width="40" height="40" viewBox="80 0 40 40">
 		<use xlink:href="#shape" x="0" y="0">
                     <animate attributeName="y"
 			     attributeType="XML"
-			     from="0"
-			     to="-40"
-			     begin="0.5s"
-			     dur="1s"
-			     repeatCount="indefinite" />
+			     values="0;0; -40;-40"
+			     begin="0.50s"
+			     dur="2s"
+			     repeatCount="indefinite"
+			     keyTimes="0;0.25;.75;1;"
+			     keySplines="1 0.01 0.61 0.84; 1 0.01 0.61 0.84; 1 0.01 0.61 0.84"
+			     calcMode="spline"/>
 		</use>
             </svg>
             <svg x="130" width="40" height="40" viewBox="120 0 40 40">
 		<use xlink:href="#shape" x="0" y="0">
                     <animate attributeName="y"
 			     attributeType="XML"
-			     from="0"
-			     to="-40"
+			     values="0;0; -40;-40"
 			     begin="0.75s"
-			     dur="1s"
-			     repeatCount="indefinite" />
+			     dur="2s"
+			     repeatCount="indefinite"
+			     keyTimes="0;0.25;.75;1;"
+			     keySplines="1 0.01 0.61 0.84; 1 0.01 0.61 0.84; 1 0.01 0.61 0.84"
+			     calcMode="spline"/>
 		</use>
             </svg>
         </g>
