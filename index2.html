@@ -7,11 +7,24 @@
 	 function init(){
 	     var outStr = 'Some Shit';
 	     var overStr = 'SAUVINGON';
+	     var numSlices = 40;
+	     var W = 160;
+	     var H = 80;
+	     var w = W/numSlices;
+	     var h = H/2;
+	     var x = 10;
+	     var durin = 1;
+	     var keyTimesIn = '0;0.25;.75;1';
+	     var keySplinesIn = '1 0.01 0.61 0.84; 1 0.01 0.61 0.84; 1 0.01 0.61 0.84';
+	     var durout = 0.5;
+	     var keyTimesOut = '0;0.25;.75;1';
+	     var keySplinesOut = '1 0.01 0.61 0.84; 1 0.01 0.61 0.84; 1 0.01 0.61 0.84';
+	     var delay = 0.005;
 	     var str = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800px" height="600px">'+
 		       '<defs>'+
 		       '<g id="shape">'+
-		       '<rect x="0" y="0" width="160" height="40" style="fill: #ffa54f" />'+
-		       '<rect x="0" y="40" width="160" height="40" style="fill: #8b4513" />'+
+		       '<rect x="0" y="0" width="' + W + '" height="' + h + '" style="fill: #ffa54f" />'+
+		       '<rect x="0" y="' + h + '" width="' + W + '" height="' + h + '" style="fill: #8b4513" />'+
 		       '<text x="5" y="30" style="fill: #333333; stroke: none; font-size: 2em;">'+
 		       outStr +
 		       '</text>' +
@@ -19,10 +32,36 @@
 		       overStr +
 		       '</text>' +
 		       '</g>' +
-		       '</defs>';
-	     str += '<svg x="180">' +
-		    '<use xlink:href="#shape" x="0" y="0" />' +
-		    '</svg>' +
+		       '</defs>'+
+		       '<g>';
+	     for(var i=0; i<numSlices; i++)
+	     {
+		 str+= '<svg x="' + (x + (i * w)) + '" width="' + w + '" height="' + h + '" viewBox="' + (i * w) + ' 0 ' + w + ' ' + h + '">'+
+		       '<use xlink:href="#shape" x="0" y="0">' +
+		       '<animate attributeName="y"'+
+		       'attributeType="XML"'+
+		       'values="0;0; -' + h + ';-' + h + '"'+
+		       'begin="funktastik.mouseover+'+(i*delay)+'s"'+
+		       'dur="' + durin + 's"'+
+		       'keyTimes="' + keyTimesIn + '"'+
+		       'keySplines="' + keySplinesIn + '"'+
+		       'calcMode="spline"'+
+		       'fill="freeze"/>'+
+		       '<animate attributeName="y"'+
+		       'attributeType="XML"'+
+		       'values="-' + h + ';-' + h + ';0;0"'+
+		       'begin="funktastik.mouseout+'+(i*delay)+'s"'+
+		       'dur="'+durout+'s"'+
+		       'keyTimes="'+keyTimesOut+'"'+
+		       'keySplines="'+keySplinesOut+'"'+
+		       'calcMode="spline"'+
+		       'fill="freeze"/>'+
+		       '</use>'+
+		       '</svg>';
+	     }
+	     str += '<rect id="funktastik" width="' + W + '" height="' + h + '" x="10" color="#999999" style="opacity:0.1"/>'+
+		    '</g>'+
+
 		    '</svg>';
 	     document.getElementById('butt').innerHTML = str;
 	 }
