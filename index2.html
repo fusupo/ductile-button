@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+	<title></title>
+	<meta charset="utf-8" />
+	<script>
+	 function init(){
+	     var outStr = 'Some Shit';
+	     var overStr = 'SAUVINGON';
+	     var str = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800px" height="600px">'+
+		       '<defs>'+
+		       '<g id="shape">'+
+		       '<rect x="0" y="0" width="160" height="40" style="fill: #ffa54f" />'+
+		       '<rect x="0" y="40" width="160" height="40" style="fill: #8b4513" />'+
+		       '<text x="5" y="30" style="fill: #333333; stroke: none; font-size: 2em;">'+
+		       outStr +
+		       '</text>' +
+		       '<text x="5" y="70" style="fill: #cdba96; stroke: none; font-size: 2em;">'+
+		       overStr +
+		       '</text>' +
+		       '</g>' +
+		       '</defs>';
+	     str += '<svg x="180">' +
+		    '<use xlink:href="#shape" x="0" y="0" />' +
+		    '</svg>' +
+		    '</svg>';
+	     document.getElementById('butt').innerHTML = str;
+	 }
+	</script>
+    </head>
+    <body>
+	<div id="butt"></div>
+	<script>
+	 init();
+	</script>
+    </body>
+</html>
