@@ -20,18 +20,27 @@
                 </text>
             </g>
         </defs>
-        <g>
+        <g >
 	    <svg x="10" width="40" height="40" viewBox="0 0 40 40">
 		<use xlink:href="#shape" x="0" y="0">
 		    <animate attributeName="y"
 			     attributeType="XML"
 			     values="0;0; -40;-40"
-			     begin="0.0s"
-			     dur="2s"
-			     repeatCount="indefinite"
+			     begin="funktastik.mouseover"
+			     dur="1s"
 			     keyTimes="0;0.25;.75;1;"
 			     keySplines="1 0.01 0.61 0.84; 1 0.01 0.61 0.84; 1 0.01 0.61 0.84"
-			     calcMode="spline"/>
+			     calcMode="spline"
+			     fill="freeze"/>
+		    <animate attributeName="y"
+			     attributeType="XML"
+			     values="-40;-40;0;0"
+			     begin="funktastik.mouseout"
+			     dur="1s"
+			     keyTimes="0;0.25;.75;1;"
+			     keySplines="1 0.01 0.61 0.84; 1 0.01 0.61 0.84; 1 0.01 0.61 0.84"
+			     calcMode="spline"
+			     fill="freeze"/>
 		</use>
             </svg>
 	    <svg x="50" width="40" height="40" viewBox="40 0 40 40">
@@ -39,12 +48,21 @@
 		    <animate attributeName="y"
 			     attributeType="XML"
 			     values="0;0; -40;-40"
-			     begin="0.25s"
-			     dur="2s"
-			     repeatCount="indefinite"
+			     begin="funktastik.mouseover+0.12s"
+			     dur="1s"
 			     keyTimes="0;0.25;.75;1;"
 			     keySplines="1 0.01 0.61 0.84; 1 0.01 0.61 0.84; 1 0.01 0.61 0.84"
-			     calcMode="spline"/>
+			     calcMode="spline"
+			     fill="freeze"/>
+		    <animate attributeName="y"
+			     attributeType="XML"
+			     values="-40;-40; 0; 0"
+			     begin="funktastik.mouseout+0.12s"
+			     dur="1s"
+			     keyTimes="0;0.25;.75;1;"
+			     keySplines="1 0.01 0.61 0.84; 1 0.01 0.61 0.84; 1 0.01 0.61 0.84"
+			     calcMode="spline"
+			     fill="freeze"/>
 		</use>
             </svg>
             <svg x="90" width="40" height="40" viewBox="80 0 40 40">
@@ -52,31 +70,50 @@
                     <animate attributeName="y"
 			     attributeType="XML"
 			     values="0;0; -40;-40"
-			     begin="0.50s"
-			     dur="2s"
-			     repeatCount="indefinite"
+			     begin="funktastik.mouseover+0.24s"
+			     dur="1s"
 			     keyTimes="0;0.25;.75;1;"
 			     keySplines="1 0.01 0.61 0.84; 1 0.01 0.61 0.84; 1 0.01 0.61 0.84"
-			     calcMode="spline"/>
+			     calcMode="spline"
+			     fill="freeze"/>
+		    <animate attributeName="y"
+			     attributeType="XML"
+			     values="-40;-40;0;0"
+			     begin="funktastik.mouseout+0.24s"
+			     dur="1s"
+			     keyTimes="0;0.25;.75;1;"
+			     keySplines="1 0.01 0.61 0.84; 1 0.01 0.61 0.84; 1 0.01 0.61 0.84"
+			     calcMode="spline"
+			     fill="freeze"/>
 		</use>
             </svg>
-            <svg x="130" width="40" height="40" viewBox="120 0 40 40">
+            <svg x="130" width="40" height="40" viewBox="120 0 40 40" style="visible:false;">
 		<use xlink:href="#shape" x="0" y="0">
                     <animate attributeName="y"
 			     attributeType="XML"
 			     values="0;0; -40;-40"
-			     begin="0.75s"
-			     dur="2s"
-			     repeatCount="indefinite"
+			     begin="funktastik.mouseover+0.36s"
+			     dur="1s"
 			     keyTimes="0;0.25;.75;1;"
 			     keySplines="1 0.01 0.61 0.84; 1 0.01 0.61 0.84; 1 0.01 0.61 0.84"
-			     calcMode="spline"/>
+			     calcMode="spline"
+			     fill="freeze"/>
+		    <animate attributeName="y"
+			     attributeType="XML"
+			     values="-40;-40;0;0"
+			     begin="funktastik.mouseout+0.36s"
+			     dur="1s"
+			     keyTimes="0;0.25;.75;1;"
+			     keySplines="1 0.01 0.61 0.84; 1 0.01 0.61 0.84; 1 0.01 0.61 0.84"
+			     calcMode="spline"
+			     fill="freeze"/>
 		</use>
             </svg>
-        </g>
-        <svg x="180">
-            <use xlink:href="#shape" x="0" y="0" />
-        </svg>
+	    <rect id="funktastik" width="160" height="40" x="10" color="#999999" style="opacity:0.1"/>
+	</g>
+	<!-- <svg x="180">
+	<use xlink:href="#shape" x="0" y="0" />
+	</svg> -->
     </svg>
 </body>
 
