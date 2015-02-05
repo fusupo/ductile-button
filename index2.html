@@ -1,89 +1,90 @@
 <!doctype html>
 <html>
-    <head>
-	<title></title>
-	<meta charset="utf-8" />
-	<style>
-	 #butt {
-	     -webkit-box-shadow: 0px 5px 3px -2px rgba(50, 50, 50, 0.5);
-	     -moz-box-shadow:    0px 5px 3px -2px rgba(50, 50, 50, 0.5);
-	     box-shadow:         0px 5px 3px -2px rgba(50, 50, 50, 0.5);
-	     background-color: red;
-	 }
 
-	</style>
-	<script>
-	 function init(){
-	     var outStr = 'Some Shit';
-	     var overStr = 'Selected';
-	     var numSlices = 40;
-	     var W = 160;
-	     var H = 80;
-	     var w = W/numSlices;
-	     var h = H/2;
-	     var x = 0;
-	     var durin = 0.5;
-	     var keyTimesIn = '0; 1';
-	     var keySplinesIn = '0.295 0.34 0.07 0.985';
-	     var durout = 0.5;
-	     var keyTimesOut = '0; 1';
-	     var keySplinesOut = '1 0.01 0.61 0.84';
-	     var delay = 0.005;
-	     var str = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="'+W+'px" height="'+h+'px">'+
-		       '<defs>'+
-		       '<g id="shape">'+
-		       '<rect x="0" y="0" width="' + W + '" height="' + h + '" style="fill: #ffa54f" />'+
-		       '<rect x="0" y="' + h + '" width="' + W + '" height="' + h + '" style="fill: #8b4513" />'+
-		       '<text x="5" y="30" style="fill: #333333; stroke: none; font-size: 2em;">'+
-		       outStr +
-		       '</text>' +
-		       '<text x="5" y="70" style="fill: #cdba96; stroke: none; font-size: 2em;">'+
-		       overStr +
-		       '</text>' +
-		       '</g>' +
-		       '</defs>'+
-		       '<g id="buttfoo">';
-	     for(var i=0; i<numSlices; i++)
-	     {
-		 str+= '<svg x="' + (x + (i * w)) + '" width="' + w + '" height="' + h + '" viewBox="' + (i * w) + ' 0 ' + w + ' ' + h + '">'+
-													  '<use xlink:href="#shape" x="0" y="0">' +
-													  '<animate attributeName="y"'+
-													  'attributeType="XML"'+
-													  'values="0;-' + h + '"'+
-													  'begin="funktastik.mouseover+'+(i*delay)+'s"'+
-																	  'dur="' + durin + 's"'+
-																	  'keyTimes="' + keyTimesIn + '"'+
-																	  'keySplines="' + keySplinesIn + '"'+
-																	  'calcMode="spline"'+
-																	  'fill="freeze"/>'+
-																	  '<animate attributeName="y"'+
-																	  'attributeType="XML"'+
-																	  'values="-' + h + ';0"'+
-																	  'begin="funktastik.mouseout+'+(i*delay)+'s"'+
-																					 'dur="'+durout+'s"'+
-																					 'keyTimes="'+keyTimesOut+'"'+
-																					 'keySplines="'+keySplinesOut+'"'+
-																					 'calcMode="spline"'+
-																					 'fill="freeze"/>'+
-																					 '</use>'+
-																					 '</svg>';
-	     }
-	     str += '<rect id="funktastik" width="' + W + '" height="' + h + '" x="'+x+'" color="#999999" style="opacity:0.0"/>'+
-		    '</g>'+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        #butt {
+            -webkit-box-shadow: 0px 5px 3px -2px rgba(50, 50, 50, 0.5);
+            -moz-box-shadow: 0px 5px 3px -2px rgba(50, 50, 50, 0.5);
+            box-shadow: 0px 5px 3px -2px rgba(50, 50, 50, 0.5);
+            background-color: red;
+        }
+    </style>
+    <script>
+        function init() {
+            var outStr = 'Some Shit';
+            var overStr = 'Selected';
+            var numSlices = 40;
+            var W = 160;
+            var H = 80;
+            var w = W / numSlices;
+            var h = H / 2;
+            var x = 0;
+            var durin = 0.5;
+            var keyTimesIn = '0; 1';
+            var keySplinesIn = '0.295 0.34 0.07 0.985';
+            var durout = 0.5;
+            var keyTimesOut = '0; 1';
+            var keySplinesOut = '1 0.01 0.61 0.84';
+            var delay = 0.005;
+            var str = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="' + W + 'px" height="' + h + 'px">' +
+                '<defs>' +
+                '<g id="shape">' +
+                '<rect x="0" y="0" width="' + W + '" height="' + h + '" style="fill: #ffa54f" />' +
+                '<rect x="0" y="' + h + '" width="' + W + '" height="' + h + '" style="fill: #8b4513" />' +
+                '<text x="5" y="30" style="fill: #333333; stroke: none; font-size: 2em;">' +
+                outStr +
+                '</text>' +
+                '<text x="5" y="70" style="fill: #cdba96; stroke: none; font-size: 2em;">' +
+                overStr +
+                '</text>' +
+                '</g>' +
+                '</defs>' +
+                '<g id="buttfoo">';
+            for (var i = 0; i < numSlices; i++) {
+                str += '<svg x="' + (x + (i * w)) + '" width="' + w + '" height="' + h + '" viewBox="' + (i * w) + ' 0 ' + w + ' ' + h + '">' +
+                    '<use xlink:href="#shape" x="0" y="0">' +
+                    '<animate attributeName="y"' +
+                    'attributeType="XML"' +
+                    'values="0;-' + h + '"' +
+                    'begin="funktastik.mouseover+' + (i * delay) + 's"' +
+                    'dur="' + durin + 's"' +
+                    'keyTimes="' + keyTimesIn + '"' +
+                    'keySplines="' + keySplinesIn + '"' +
+                    'calcMode="spline"' +
+                    'fill="freeze"/>' +
+                    '<animate attributeName="y"' +
+                    'attributeType="XML"' +
+                    'values="-' + h + ';0"' +
+                    'begin="funktastik.mouseout+' + (i * delay) + 's"' +
+                    'dur="' + durout + 's"' +
+                    'keyTimes="' + keyTimesOut + '"' +
+                    'keySplines="' + keySplinesOut + '"' +
+                    'calcMode="spline"' +
+                    'fill="freeze"/>' +
+                    '</use>' +
+                    '</svg>';
+            }
+            str += '<rect id="funktastik" width="' + W + '" height="' + h + '" x="' + x + '" color="#999999" style="opacity:0.0"/>' +
+                '</g>' +
 
-		    '</svg>';
-	     document.getElementById('butt').innerHTML = str;
-	     document.getElementById('butt').style.width = W + 'px';
-	     document.getElementById('butt').style.height = h + 'px';
-	     document.getElementById('butt').style.color = '#ff0000';
-	 }
-	</script>
-    </head>
-    <body>
-	<div id="butt">
-	</div>
-	<script>
-	 init();
-	</script>
-    </body>
+                '</svg>';
+            document.getElementById('butt').innerHTML = str;
+            document.getElementById('butt').style.width = W + 'px';
+            document.getElementById('butt').style.height = h + 'px';
+            document.getElementById('butt').style.color = '#ff0000';
+        }
+    </script>
+</head>
+
+<body>
+    <div id="butt">
+    </div>
+    <script>
+        init();
+    </script>
+</body>
+
 </html>
