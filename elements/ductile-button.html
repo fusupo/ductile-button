@@ -1,0 +1,158 @@
+<link rel="import" href="../components/bower_components/polymer/polymer.html">
+<link rel="import" href="../components/bower_components/core-ajax/core-ajax.html">
+
+<polymer-element name="ductile-button">
+  <template>
+    <style>
+      :host { width: {{fullWidth}};
+              height: {{fullHeight}};
+      }
+    </style>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{{fullWidth}}" height="{{fullHeight}}">
+      <defs>
+        <g id="shape">
+          <rect x="0" y="0" width="{{fullWidth}}" height="{{fullHeight}}" style="fill: #abc"></rect>
+          <rect x="0" y="{{fullHeight}}" width="{{fullWidth}}" height="{{fullHeight}}" style="fill: #abc"></rect>
+          <text id="outText" x="{{marginW/2}}" y="{{height}}" style="fill: #333333; stroke: none; font-size: {{fontSize}}em;">{{outStr}}</text>
+          <text id="overText" x="{{marginW/2}}" y="{{height + fullHeight}}" style="fill: #333333; stroke: none; font-size: {{fontSize}}em;">{{overStr}}</text>
+        </g>
+      </defs>
+      <g id="buttfoo">
+        <template repeat="{{s in slices}}">
+          <svg x="{{s.x}}" width="{{s.width}}" height="{{s.height}}" viewBox="{{s.x}} {{s.y}} {{s.width}} {{s.height}}">
+            <use xlink:href="#shape" x="0" y="0">
+              <animate attributeName="y"
+                       attributeType="XML"
+                       values="0;-{{s.height}}"
+                       begin="funktastik.mouseover+{{s.delay}}s"
+                       dur="0.5s"
+                       keyTimes="0; 1"
+                       keySplines="0.295 0.34 0.07 0.985"
+                       calcMode="spline"
+                       fill="freeze">
+              </animate>
+              <animate attributeName="y"
+                       attributeType="XML"
+                       values="-{{s.height}};0"
+                       begin="funktastik.mouseout+{{s.delay}}s"
+                       dur="0.5s"
+                       keyTimes="0; 1"
+                       keySplines="1 0.01 0.61 0.84"
+                       calcMode="spline"
+                       fill="freeze">
+              </animate>
+            </use>
+          </svg>
+          <rect x="{{s.x}}" y="0" width="{{s.width}}" height="{{s.height}}" fill="#ffffff" opacity="0.0">
+            <animate attributeName="height"
+                     attributeType="auto"
+                     values="{{s.height}};0"
+                     begin="funktastik.mouseover+{{s.delay}}s"
+                     dur="0.5s"
+                     keyTimes="0; 1"
+                     keySplines="0.295 0.34 0.07 0.985"
+                     calcMode="spline"
+                     fill="freeze">
+            </animate>
+            <animate attributeName="height"
+                     attributeType="auto"
+                     values="0;{{s.height}}"
+                     begin="funktastik.mouseout+{{s.delay}}s"
+                     dur="0.5s"
+                     keyTimes="0; 1"
+                     keySplines="1 0.01 0.61 0.84"
+                     calcMode="spline"
+                     fill="freeze">
+            </animate>
+
+            <animate attributeName="opacity"
+                     attributeType="auto"
+                     values="0; 1"
+                     begin="funktastik.mouseover+{{s.delay}}s"
+                     dur="0.5s"
+                     keyTimes="0; 0.5"
+                     keySplines="0.295 0.34 0.07 0.985"
+                     calcMode="spline"
+                     fill="freeze">
+            </animate>
+            <animate attributeName="opacity"
+                     attributeType="auto"
+                     values="0.5; 0"
+                     begin="funktastik.mouseout+{{s.delay}}s"
+                     dur="0.5s"
+                     keyTimes="0; 1"
+                     keySplines="1 0.01 0.61 0.84"
+                     calcMode="spline"
+                     fill="freeze">
+            </animate>
+          </rect>
+          <rect x="{{s.x}}" y="{{s.height}}" width="{{s.width}}" height="0" fill="#000000" opacity="0.5">
+            <animate attributeName="height"
+                     attributeType="auto"
+                     values="0;{{s.height}}"
+                     begin="funktastik.mouseover+{{s.delay}}s"
+                     dur="0.5s"
+                     keyTimes="0; 1"
+                     keySplines="0.295 0.34 0.07 0.985"
+                     calcMode="spline"
+                     fill="freeze">
+            </animate>
+            <animate attributeName="height"
+                     attributeType="auto"
+                     values="{{s.height}};0"
+                     begin="funktastik.mouseout+{{s.delay}}s"
+                     dur="0.5s"
+                     keyTimes="0; 1"
+                     keySplines="1 0.01 0.61 0.84"
+                     calcMode="spline"
+                     fill="freeze">
+            </animate>
+            <animate attributeName="y"
+                     attributeType="auto"
+                     values="{{s.height}};0"
+                     begin="funktastik.mouseover+{{s.delay}}s"
+                     dur="0.5s"
+                     keyTimes="0; 1"
+                     keySplines="0.295 0.34 0.07 0.985"
+                     calcMode="spline"
+                     fill="freeze">
+            </animate>
+            <animate attributeName="y"
+                     attributeType="auto"
+                     values="0;{{s.height}}"
+                     begin="funktastik.mouseout+{{s.delay}}s"
+                     dur="0.5s"
+                     keyTimes="0; 1"
+                     keySplines="1 0.01 0.61 0.84"
+                     calcMode="spline"
+                     fill="freeze">
+            </animate>
+
+            <animate attributeName="opacity"
+                     attributeType="auto"
+                     values="0.5; 0"
+                     begin="funktastik.mouseover+{{s.delay}}s"
+                     dur="0.5s"
+                     keyTimes="0; 1"
+                     keySplines="0.295 0.34 0.07 0.985"
+                     calcMode="spline"
+                     fill="freeze">
+            </animate>
+            <animate attributeName="opacity"
+                     attributeType="auto"
+                     values="0; 0.5"
+                     begin="funktastik.mouseout+{{s.delay}}s"
+                     dur="0.5s"
+                     keyTimes="0; 1"
+                     keySplines="1 0.01 0.61 0.84"
+                     calcMode="spline"
+                     fill="freeze">
+            </animate>
+          </rect>
+        </template>
+        <rect id="funktastik" width="{{fullWidth}}" height="{{fullHeight}}" x="0" color="#999999" style="opacity:0.0"></rect>    
+      </g>
+    </svg>
+  </template>
+  <script src="ductile-button.js"></script>
+</polymer-element>
