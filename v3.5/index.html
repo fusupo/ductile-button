@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        #butt-too {
+            -webkit-box-shadow: 0px 5px 3px -2px rgba(50, 50, 50, 0.5);
+            -moz-box-shadow: 0px 5px 3px -2px rgba(50, 50, 50, 0.5);
+            box-shadow: 0px 5px 3px -2px rgba(50, 50, 50, 0.5);
+            background-color: red;
+        }
+    </style>
+    <script src="ductile-button.js"></script>
+</head>
+
+<body>
+    <div id="paragraph1">
+        the consolidated works are at <a href="http://www.xtof.net">xtof.net</a>
+        <br/> please visit <a href="http://www.marcchristophe.com">marc christophe.com</a> for updates on my latest works.
+        <br/>
+        <a style="font-size:4em;" href="http://www.google.com">some link</a> is a great place to paddle out into the waves of teh internets
+        <br/>
+    </div>
+    <hr>
+    <div id="paragraph2">
+
+        at <a href="http://www.christophilos.com">christophilos.com</a> I let my ponderings free
+
+    </div>
+    <hr>
+    <div id="butt">
+    </div>
+    <div id="butt-too">
+    </div>
+    <script>
+        window.onload = function() {
+            xtof.ductile.replaceLinks('paragraph1');
+        }
+    </script>
+</body>
+
+</html>
