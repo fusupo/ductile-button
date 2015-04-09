@@ -6,7 +6,7 @@ var xtof = xtof || {};
 
     //via quirksmode: http://www.quirksmode.org/dom/getstyles.html
     var getStyle = function(el, styleProp) {
-        var x = el; //document.getElementById(el);
+        var x = el;
         if (x.currentStyle)
             var y = x.currentStyle[styleProp];
         else if (window.getComputedStyle)
@@ -111,17 +111,6 @@ var xtof = xtof || {};
             useElm.setAttribute("x", 0);
             useElm.setAttribute("y", 0);
 
-            // var anim1 = document.createElementNS(xmlns, "animate");
-            // anim1.setAttribute("attributeName", "y");
-            // anim1.setAttribute("attributeType", "XML");
-            // anim1.setAttribute("values", "0;-" + H);
-            // anim1.setAttribute("begin", "hit-" + baseID + ".mouseover+" + (i * delay) + "s");
-            // anim1.setAttribute("dur", durin + "s");
-            // anim1.setAttribute("keyTimes", keyTimesIn);
-            // anim1.setAttribute("keySplines", keySplinesIn);
-            // anim1.setAttribute("calcMode", "spline");
-            // anim1.setAttribute("fill", "freeze");
-
             var anim1 = document.createElementNS(xmlns, "animateTransform");
             anim1.setAttribute("attributeName", "transform");
             anim1.setAttribute("type", "translate");
@@ -145,17 +134,6 @@ var xtof = xtof || {};
             anim1b.setAttribute("keySplines", keySplinesIn);
             anim1b.setAttribute("calcMode", "spline");
             anim1b.setAttribute("fill", "freeze");
-
-            // var anim2 = document.createElementNS(xmlns, "animate");
-            // anim2.setAttribute("attributeName", "y");
-            // anim2.setAttribute("attributeType", "XML");
-            // anim2.setAttribute("values", "-" + H + ";0");
-            // anim2.setAttribute("begin", "hit-" + baseID + ".mouseout+" + (i * delay) + "s");
-            // anim2.setAttribute("dur", durout + "s");
-            // anim2.setAttribute("keyTimes", keyTimesOut);
-            // anim2.setAttribute("keySplines", keySplinesOut);
-            // anim2.setAttribute("calcMode", "spline");
-            // anim2.setAttribute("fill", "freeze");
 
             var anim2 = document.createElementNS(xmlns, "animateTransform");
             anim2.setAttribute("attributeName", "transform");
@@ -182,9 +160,7 @@ var xtof = xtof || {};
             anim2b.setAttribute("fill", "freeze");
 
             useElm.appendChild(anim1);
-            //useElm.appendChild(anim1b);
             useElm.appendChild(anim2);
-            //useElm.appendChild(anim2b);
             vg.appendChild(useElm);
             g2.appendChild(vg);
 
@@ -257,7 +233,7 @@ var xtof = xtof || {};
     };
 
     xtof.ductile.replaceLinks = function(parentElement) {
-        console.log(parentElement);
+        
         var elm;
         if (parentElement !== undefined) {
             elm = document.getElementById(parentElement);
@@ -272,6 +248,7 @@ var xtof = xtof || {};
             linkElm.text = "";
             init(targtxt, targtxt, linkElm);
         };
+        
     };
 
 }(this));
