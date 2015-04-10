@@ -56,6 +56,38 @@ var xtof = xtof || {};
         g2.setAttribute("id", "the-button");
 
         //
+        
+        var createAnimateTransform = function(type, from, to, begin, dur, keyTimes, keySplines){
+            var anim = document.createElementNS(xmlns, "animateTransform");
+            anim.setAttribute("attributeName", "transform");
+            anim.setAttribute("type", type);
+            anim.setAttribute("from", from);
+            anim.setAttribute("to", to);
+            anim.setAttribute("begin", begin);
+            anim.setAttribute("dur", dur);
+            anim.setAttribute("keyTimes", keyTimes);
+            anim.setAttribute("keySplines", keySplines);
+            anim.setAttribute("calcMode", "spline");
+            anim.setAttribute("fill", "freeze");
+            return anim;
+        };
+
+        var createAnimate = function(type, from, to, begin, dur, keyTimes, keySplines){
+            var anim = document.createElementNS(xmlns, "animate");
+            anim.setAttribute("attributeName", type);
+            anim.setAttribute("attributeType", "auto");
+            anim.setAttribute("from", from);
+            anim.setAttribute("to", to);
+            anim.setAttribute("begin", begin);
+            anim.setAttribute("dur", dur);
+            anim.setAttribute("keyTimes", keyTimes);
+            anim.setAttribute("keySplines", keySplines);
+            anim.setAttribute("calcMode", "spline");
+            anim.setAttribute("fill", "freeze");
+            return anim;
+        };
+        
+        //
 
         elm.appendChild(svgElm);
 
@@ -111,109 +143,86 @@ var xtof = xtof || {};
             useElm.setAttribute("x", 0);
             useElm.setAttribute("y", 0);
 
-            var anim1 = document.createElementNS(xmlns, "animateTransform");
-            anim1.setAttribute("attributeName", "transform");
-            anim1.setAttribute("type", "translate");
-            anim1.setAttribute("from", "0 0");
-            anim1.setAttribute("to", "0 -" + H);
-            anim1.setAttribute("begin", "hit-" + baseID + ".mouseover+" + (i * delay) + "s");
-            anim1.setAttribute("dur", durin + "s");
-            anim1.setAttribute("keyTimes", keyTimesIn);
-            anim1.setAttribute("keySplines", keySplinesIn);
-            anim1.setAttribute("calcMode", "spline");
-            anim1.setAttribute("fill", "freeze");
+            var anim1 = createAnimateTransform( "translate",
+                                                "0 0",
+                                                "0 -" + H,
+                                                "hit-" + baseID + ".mouseover+" + (i * delay) + "s",
+                                                durin + "s",
+                                                keyTimesIn,
+                                                keySplinesIn );
 
-            var anim1b = document.createElementNS(xmlns, "animateTransform");
-            anim1b.setAttribute("attributeName", "transform");
-            anim1b.setAttribute("type", "scale");
-            anim1b.setAttribute("from", "1 0");
-            anim1b.setAttribute("to", "1 1");
-            anim1b.setAttribute("begin", "hit-" + baseID + ".mouseover+" + (i * delay) + "s");
-            anim1b.setAttribute("dur", durin + "s");
-            anim1b.setAttribute("keyTimes", keyTimesIn);
-            anim1b.setAttribute("keySplines", keySplinesIn);
-            anim1b.setAttribute("calcMode", "spline");
-            anim1b.setAttribute("fill", "freeze");
+            // var anim1b = document.createElementNS(xmlns, "animateTransform");
+            // anim1b.setAttribute("attributeName", "transform");
+            // anim1b.setAttribute("type", "scale");
+            // anim1b.setAttribute("from", "1 0");
+            // anim1b.setAttribute("to", "1 1");
+            // anim1b.setAttribute("begin", "hit-" + baseID + ".mouseover+" + (i * delay) + "s");
+            // anim1b.setAttribute("dur", durin + "s");
+            // anim1b.setAttribute("keyTimes", keyTimesIn);
+            // anim1b.setAttribute("keySplines", keySplinesIn);
+            // anim1b.setAttribute("calcMode", "spline");
+            // anim1b.setAttribute("fill", "freeze");
 
-            var anim2 = document.createElementNS(xmlns, "animateTransform");
-            anim2.setAttribute("attributeName", "transform");
-            anim2.setAttribute("type", "translate");
-            anim2.setAttribute("from", "0 -" + H);
-            anim2.setAttribute("to", "0 0");
-            anim2.setAttribute("begin", "hit-" + baseID + ".mouseout+" + (i * delay) + "s");
-            anim2.setAttribute("dur", durout + "s");
-            anim2.setAttribute("keyTimes", keyTimesOut);
-            anim2.setAttribute("keySplines", keySplinesOut);
-            anim2.setAttribute("calcMode", "spline");
-            anim2.setAttribute("fill", "freeze");
+            var anim2 = createAnimateTransform( "translate",
+                                                "0 -" + H,
+                                                "0 0",
+                                                "hit-" + baseID + ".mouseout+" + (i * delay) + "s",
+                                                durout + "s",
+                                                keyTimesOut,
+                                                keySplinesOut );
 
-            var anim2b = document.createElementNS(xmlns, "animateTransform");
-            anim2b.setAttribute("attributeName", "transform");
-            anim2b.setAttribute("type", "scale");
-            anim2b.setAttribute("from", "1 1");
-            anim2b.setAttribute("to", "1 0");
-            anim2b.setAttribute("begin", "hit-" + baseID + ".mouseout+" + (i * delay) + "s");
-            anim2b.setAttribute("dur", durout + "s");
-            anim2b.setAttribute("keyTimes", keyTimesOut);
-            anim2b.setAttribute("keySplines", keySplinesOut);
-            anim2b.setAttribute("calcMode", "spline");
-            anim2b.setAttribute("fill", "freeze");
+            // var anim2b = document.createElementNS(xmlns, "animateTransform");
+            // anim2b.setAttribute("attributeName", "transform");
+            // anim2b.setAttribute("type", "scale");
+            // anim2b.setAttribute("from", "1 1");
+            // anim2b.setAttribute("to", "1 0");
+            // anim2b.setAttribute("begin", "hit-" + baseID + ".mouseout+" + (i * delay) + "s");
+            // anim2b.setAttribute("dur", durout + "s");
+            // anim2b.setAttribute("keyTimes", keyTimesOut);
+            // anim2b.setAttribute("keySplines", keySplinesOut);
+            // anim2b.setAttribute("calcMode", "spline");
+            // anim2b.setAttribute("fill", "freeze");
 
             useElm.appendChild(anim1);
             useElm.appendChild(anim2);
             vg.appendChild(useElm);
             g2.appendChild(vg);
 
-            var anim3 = document.createElementNS(xmlns, "animate");
-            anim3.setAttribute("attributeName", "fill");
-            anim3.setAttribute("attributeType", "auto");
-            anim3.setAttribute("from", "#333");
-            anim3.setAttribute("to", bgColorOver);
-            anim3.setAttribute("begin", "hit-" + baseID + ".mouseover+" + (i * delay) + "s");
-            anim3.setAttribute("dur", durin);
-            anim3.setAttribute("keyTimes", keyTimesIn);
-            anim3.setAttribute("keySplines", keySplinesIn);
-            anim3.setAttribute("calcMode", "spline");
-            anim3.setAttribute("fill", "freeze");
+            var anim3 = createAnimate("fill",
+                                      "#333",
+                                      bgColorOver,
+                                      "hit-" + baseID + ".mouseover+" + (i * delay) + "s",
+                                      durin + "s",
+                                      keyTimesIn,
+                                      keySplinesIn);
 
-            var anim4 = document.createElementNS(xmlns, "animate");
-            anim4.setAttribute("attributeName", "fill");
-            anim4.setAttribute("attributeType", "auto");
-            anim4.setAttribute("from", bgColorOver);
-            anim4.setAttribute("to", "#333");
-            anim4.setAttribute("begin", "hit-" + baseID + ".mouseout+" + (i * delay) + "s");
-            anim4.setAttribute("dur", durout + "s");
-            anim4.setAttribute("keyTimes", keyTimesOut);
-            anim4.setAttribute("keySplines", keySplinesOut);
-            anim4.setAttribute("calcMode", "spline");
-            anim4.setAttribute("fill", "freeze");
+            var anim4 = createAnimate("fill",
+                                      bgColorOver,
+                                      "#333",
+                                      "hit-" + baseID + ".mouseout+" + (i * delay) + "s",
+                                      durout + "s",
+                                      keyTimesOut,
+                                      keySplinesOut);
+
 
             overRectElm.appendChild(anim3);
             overRectElm.appendChild(anim4);
 
-            var anim5 = document.createElementNS(xmlns, "animate");
-            anim5.setAttribute("attributeName", "fill");
-            anim5.setAttribute("attributeType", "auto");
-            anim5.setAttribute("from", bgColorOut);
-            anim5.setAttribute("to", "#fff");
-            anim5.setAttribute("begin", "hit-" + baseID + ".mouseover+" + (i * delay) + "s");
-            anim5.setAttribute("dur", durin);
-            anim5.setAttribute("keyTimes", keyTimesIn);
-            anim5.setAttribute("keySplines", keySplinesIn);
-            anim5.setAttribute("calcMode", "spline");
-            anim5.setAttribute("fill", "freeze");
+            var anim5 = createAnimate("fill",
+                                      bgColorOut,
+                                      "#fff",
+                                      "hit-" + baseID + ".mouseover+" + (i * delay) + "s",
+                                      durin + "s",
+                                      keyTimesIn,
+                                      keySplinesIn);
 
-            var anim6 = document.createElementNS(xmlns, "animate");
-            anim6.setAttribute("attributeName", "fill");
-            anim6.setAttribute("attributeType", "auto");
-            anim6.setAttribute("from", "#fff");
-            anim6.setAttribute("to", bgColorOut);
-            anim6.setAttribute("begin", "hit-" + baseID + ".mouseout+" + (i * delay) + "s");
-            anim6.setAttribute("dur", durout + "s");
-            anim6.setAttribute("keyTimes", keyTimesOut);
-            anim6.setAttribute("keySplines", keySplinesOut);
-            anim6.setAttribute("calcMode", "spline");
-            anim6.setAttribute("fill", "freeze");
+            var anim6 = createAnimate("fill",
+                                      "#fff",
+                                      bgColorOut,
+                                      "hit-" + baseID + ".mouseout+" + (i * delay) + "s",
+                                      durout + "s",
+                                      keyTimesOut,
+                                      keySplinesOut);
 
             outRectElm.appendChild(anim5);
             outRectElm.appendChild(anim6);
